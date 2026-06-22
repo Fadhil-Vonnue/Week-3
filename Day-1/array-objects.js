@@ -79,3 +79,26 @@ console.log(mergedObj);
 console.log(clone);
 clone.name="clone_name"
 console.log(clone);
+
+
+const obj3 = { name: "emp1", dept: "Plumber", salary: 15000, yearsExp: 2 };
+function deepClone(obj) {
+  if (obj === null || typeof obj !== "object") {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(item => deepClone(item));
+  }
+
+  const clone = {};
+  for (let key in obj) {
+    clone[key] = obj[key];
+  }
+  return clone;
+}
+const cloned=deepClone(input)
+console.log(cloned)
+cloned.department.branch.name="clone_name"
+console.log(cloned)
+console.log(input)
