@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "hero hero"
+          "projects projects";
+      }
+      header {
+        grid-area: header;
+        display: flex;
+        padding: 10px 20px;
+        align-items: center;
+        height: 6vh;
+        background-color: #171717;
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        font-family: sans-serif;
+        grid-area: header;
+      }
+      .hero {
+        grid-area: hero;
+        height: 800px;
+        background-size: cover;
+        background-position: 0px -130px;
+        background-image: url(backg.jpg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 300px;
+      }
+      .hero span {
+        color: white;
+        font-family: sans-serif;
+      }
+      .hero span:first-child {
+        font-size: 80px;
+        font-weight: 400;
+      }
+      .hero span:nth-child(2) {
+        font-size: 120px;
+        font-weight: 700;
+      }
+      .projects {
+        display: grid;
+        font-family: sans-serif;
+        background-color: rgb(15, 1, 27);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, auto);
+        grid-area: projects;
+        grid-template-areas:
+          "featured featured"
+          "proj1 proj2"
+          "extra3 extra3"
+          "cardsection cardsection";
+      }
+      .featured {
+        display: flex;
+        color: white;
+        padding: 50px;
+        font-family: sans-serif;
+        border: 1px solid rgba(128, 128, 128, 0.384);
+      }
+      .featured:hover .overlay {
+        opacity: 1;
+      }
+      .featured:hover .overlay h1 {
+        transform: scale(1.5);
+      }
+      .proj1:hover .overlay1,
+      .proj2:hover .overlay1 {
+        opacity: 1;
+      }
+      .proj1:hover .overlay1 h1,
+      .proj2:hover .overlay1 h1 {
+        transform: scale(1.5);
+      }
+      .overlay {
+        padding: 50px;
+        top: 0;
+        left: 0;
+        background-color: #000000;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .overlay1 {
+        padding: 50px;
+        top: 0;
+        left: 0;
+        background-color: #000000;
+        width: 100%;
+        gap: 20px;
+        box-sizing: border-box;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .overlay h1 {
+        transition: transform 0.5s;
+      }
+      .overlay1 h1 {
+        transition: transform 0.5s;
+      }
+      .links a {
+        background-color: blueviolet;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 30px;
+        border-radius: 20px;
+      }
+      .links {
+        display: flex;
+        gap: 20px;
+      }
+      .overlaytext {
+        gap: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .overlaytext h1 {
+        font-size: 30px;
+      }
+      .extra {
+        position: relative;
+        grid-column: span 2;
+        grid-row: span 2;
+        grid-area: featured;
+      }
+      .extra1,
+      .extra2 {
+        position: relative;
+      }
+      .extra1 {
+        grid-area: proj1;
+      }
+      .extra2 {
+        grid-area: proj2;
+      }
+      .proj1,
+      .proj2 {
+        padding: 50px;
+        color: white;
+      }
+      .projects h2 {
+        font-size: 50px;
+      }
+      .proj1 h2,
+      .proj2 h2 {
+        font-size: 40px;
+      }
+      .projects span {
+        color: blueviolet;
+        font-size: 30px;
+      }
+      .featured .desc {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 30px 10px 80px;
+      }
+      .proj1 .desc,
+      .proj2 .desc {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+      }
+      .desc p {
+        font-size: 30px;
+        line-height: 30px;
+      }
+      .proj1 .desc p,
+      .proj2 .desc p {
+        font-size: 20px;
+        line-height: 30px;
+      }
+      .img {
+        align-items: center;
+        display: flex;
+      }
+      .proj1,
+      .proj2 {
+        border: 1px solid rgba(128, 128, 128, 0.384);
+      }
+      .img1 img {
+        width: 50%;
+      }
+      .cardsection{
+        /* grid-area: cardsection; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-family: sans-serif;
+        background-color: rgb(15, 1, 27);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Portfolio</h1>
+      </header>
+      <div class="hero">
+        <span>Hello, I am</span>
+        <span>John Doe</span>
+      </div>
+      <div class="projects">
+        <div class="extra">
+          <div class="featured">
+            <div class="img">
+              <img
+                width="800"
+                height="400"
+                src="https://irp.cdn-website.com/3d3a8a6e/dms3rep/multi/AdobeStock_278878831_RC.png"
+                alt=""
+              />
+            </div>
+            <div class="desc">
+              <span>Featured Project</span>
+              <h2>Example Project</h2>
+              <span>Ai, MERN, FastAPI, MongoDB</span>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Aspernatur obcaecati dolor natus doloribus tenetur libero et
+                officiis, aperiam pariatur alias optio animi ipsa quia unde,
+                officia velit consequuntur porro magnam harum. Unde quod odit
+                sit consequuntur, veritatis facere perferendis nihil non officia
+                corrupti eum? At architecto consectetur corporis impedit nemo?
+              </p>
+            </div>
+            <div class="overlay">
+              <div class="img">
+                <img
+                  width="800"
+                  height="400"
+                  src="https://irp.cdn-website.com/3d3a8a6e/dms3rep/multi/AdobeStock_278878831_RC.png"
+                  alt=""
+                />
+              </div>
+              <div class="overlaytext">
+                <h1>THIS IS FEATURED PROJECT NAME</h1>
+                <div class="links">
+                  <a class="links"id="button"  href="https://example.com" onclick="return false;">Github</a>
+                  <a class="links" href="">Netlify</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="extra1">
+          <div class="proj1">
+            <div class="desc">
+              <h2>Example Project</h2>
+              <div class="img1">
+                <img
+                  src="https://irp.cdn-website.com/3d3a8a6e/dms3rep/multi/AdobeStock_278878831_RC.png"
+                  alt=""
+                />
+              </div>
+              <span>Ai, MERN, FastAPI, MongoDB</span>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Aspernatur obcaecati dolor natus doloribus tenetur libero et
+                officiis, aperiam pariatur alias optio animi ipsa quia unde,
+                officia velit consequuntur porro magnam harum. Unde quod odit
+                sit consequuntur, veritatis facere perferendis nihil non officia
+                corrupti eum? At architecto consectetur corporis impedit nemo?
+              </p>
+            </div>
+            <div class="overlay1">
+              <div class="img">
+                <img
+                  width="800"
+                  height="400"
+                  src="https://irp.cdn-website.com/3d3a8a6e/dms3rep/multi/AdobeStock_278878831_RC.png"
+                  alt=""
+                />
+              </div>
+              <div class="overlaytext">
+                <h1>THIS IS PROJECT NAME</h1>
+                <div class="links">
+                  <a class="links" href="#">Github</a>
+                  <a class="links" href="#">Netlify</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="extra2">
+          <div class="proj2">
+            <div class="desc">
+              <h2>Example Project</h2>
+              <div class="img1">
+                <img
+                  src="https://irp.cdn-website.com/3d3a8a6e/dms3rep/multi/AdobeStock_278878831_RC.png"
+                  alt=""
+                />
+              </div>
+              <span>Ai, MERN, FastAPI, MongoDB</span>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Aspernatur obcaecati dolor natus doloribus tenetur libero et
+                officiis, aperiam pariatur alias optio animi ipsa quia unde,
+                officia velit consequuntur porro magnam harum. Unde quod odit
+                sit consequuntur, veritatis facere perferendis nihil non officia
+                corrupti eum? At architecto consectetur corporis impedit nemo?
+              </p>
+            </div>
+            <div class="overlay1">
+              <div class="img">
+                <img
+                  width="800"
+                  height="400"
+                  src="https://irp.cdn-website.com/3d3a8a6e/dms3rep/multi/AdobeStock_278878831_RC.png"
+                  alt=""
+                />
+              </div>
+              <div class="overlaytext">
+                <h1>THIS IS PROJECT NAME</h1>
+                <div class="links">
+                  <a class="links" href="#">Github</a>
+                  <a class="links" href="#">Netlify</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cardsection">
+    </div>
+
+    </div>
+    <script src="portfolio.js"></script>
+  </body>
+</html>
