@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      div {
+        border: 1px solid rgb(255, 0, 0);
+        padding: 10px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="div1">
+      div1
+      <div class="div2">
+        div2
+        <div onclick="event.stopPropagation()" class="div3">div3</div>
+      </div>
+    </div>
+        <div class="div6">div6</div>
+    <form >
+      <input type="text" required>
+      <input type="submit" id="submit">
+    </form>
+    <a href="https://www.google.com">Hello</a>
+    <script src="bubble.js"></script>
+  </body>
+</html>
