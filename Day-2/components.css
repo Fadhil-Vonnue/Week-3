@@ -1,0 +1,443 @@
+header h1 {
+  color: blanchedalmond;
+}
+main{
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.article {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  border-radius: 10px;
+  padding: 5px;
+  color: yellow;
+  background-color: #000080;
+}
+
+.selection a {
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover,
+header a:focus-visible {
+  padding: 0;
+  color: yellow !important;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: #217c15 !important;
+  color: white !important;
+}
+
+.testimonial {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+footer .footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid grey;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+footer .footer .content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  padding: 0 50px;
+}
+
+.card .socials button {
+  border-radius: 50%;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .footer .socials button {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .socials {
+  display: flex;
+  gap: 5px;
+  width: 35px;
+  flex-direction: row;
+  margin-top: auto;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+footer .footer .socials {
+  display: flex;
+  gap: 5px;
+}
+
+footer .copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  text-align: center;
+}
+
+dl {
+  position: relative;
+  margin: 20px;
+}
+
+dl dt::before {
+  content: "";
+  width: 1px;
+  height: 10px;
+  border: solid;
+  margin-right: 10px;
+}
+
+dl dd::before {
+  content: "";
+  height: 30px;
+  border: solid;
+  margin-right: 50px;
+}
+
+dl dt::after {
+  position: absolute;
+  left: 18px;
+  display: inline-block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: black;
+}
+
+dl dt {
+  padding: 0 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 5%);
+}
+
+dl dd {
+  width: auto;
+  padding: 0 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 5%);
+}
+
+.pullquote {
+  text-align: center;
+  background: #ddf;
+  font-weight: bold;
+  padding: 13px;
+  margin: 0 13px 13px 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+  min-width: 0;
+  border: 2px solid rgb(128 128 128 / 47.9%);
+  box-shadow: 0 6px 8px rgb(0 0 0 / 20%);
+  transition: transform 100ms ease;
+}
+
+.card:hover {
+  border: 2px solid var(--color-accent);
+  transform: translateY(-10px);
+}
+
+.subs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+td,
+th {
+  padding: 10px;
+  border: solid;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table {
+  border: 2px solid black;
+}
+
+.featured,
+th:nth-child(5) {
+  background-color: #0fb80f !important;
+}
+
+tbody tr:first-child th {
+  position: sticky;
+  top: 85px;
+  z-index: 500;
+  background-color: white;
+}
+
+.cta {
+  background-color: var(--color-accent);
+  color: rgb(0 0 0);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.enroll {
+  color: blueviolet;
+  border-radius: 10px;
+  padding: 10px;
+  width: 120px;
+}
+
+.card img {
+  border-radius: 50%;
+}
+
+.selection {
+  display: flex;
+  gap: 15px;
+  background-color: rgb(8 8 95);
+  color: white;
+  height: 4vh;
+  align-items: center;
+  padding: 10px;
+}
+
+.card:hover .socials {
+  opacity: 100;
+}
+
+#leadership,
+#executive {
+  display: none;
+}
+
+#executive:target {
+  display: block;
+}
+
+#leadership:target {
+  display: block;
+}
+
+.field {
+  position: relative;
+  margin: 45px auto;
+}
+
+.field input,
+textarea {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.field label {
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  left: 10px;
+  top: 13px;
+  transition: 0.2s ease all;
+}
+
+.field input:focus ~ label,
+.field textarea:focus ~ label,
+.field input:valid ~ label,
+.field form:focus ~ label {
+  top: -20px;
+  font-size: 14px;
+}
+
+[type="submit"] {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+}
+
+[type="checkbox"] ~ label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  border-radius: 999px;
+  background-color: rgb(255 255 255);
+  border: 2px solid rgb(0 0 0);
+}
+
+[type="checkbox"] ~ label::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: black;
+  border: 1px solid rgb(0 0 0);
+  transition: all 0.2s ease;
+}
+
+.checkbx {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+}
+
+[type="checkbox"] {
+  opacity: 0;
+  width: 60px;
+}
+ #dark{
+    width: auto;
+    opacity: 1;
+ }
+
+[type="checkbox"]:checked ~ label::after {
+  left: 20px;
+}
+
+[type="checkbox"]:checked ~ label::before {
+  background-color: lightskyblue;
+}
+
+select {
+  border: 2px solid #ddd;
+  background: #eee;
+  padding: 10px;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+select:hover,
+select:focus {
+  background: #ddd;
+}
+
+select::picker-icon {
+  color: #666;
+  transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+  rotate: 180deg;
+}
+
+option {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  color: white;
+  border: 2px solid #ddd;
+  background: #1d1d1d;
+  padding: 10px;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover {
+  background-color: lightblue;
+}
+
+[type="submit"]:focus,
+[type="submit"]:hover {
+  background-color: #0fb80f !important;
+}
+
+input:user-invalid {
+  border: solid rgb(255 0 0);
+}
+
+input:user-valid,
+select:user-valid {
+  border: solid green;
+}
+
+select:user-invalid {
+  border: solid rgb(255 0 0);
+}
+
+iframe {
+  border-radius: 50%;
+}
