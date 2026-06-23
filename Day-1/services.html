@@ -49,14 +49,22 @@
   <body>
     <header>
       <button  id="dark">Toggle Dark Button</button>
-      <nav>
+      <div class="flex">
+      <button onclick="openDrawer()" class="hamb">
+            <img
+              src="https://img.icons8.com/?size=50&id=uPyvV9qxnXJm&format=png&color=000000"
+              alt="hamburger-button"
+            />
+          </button>
+      <h1>HOME</h1>
+      </div>
+      <div class="drawer">
         <a href="./home.html">Home</a>
         <a aria-current="page" href="#">Services</a>
         <a href="./team.html">Team</a>
         <a href="./about.html">About</a>
         <a href="./contact.html">Contact</a>
-      </nav>
-      <h1>SERVICES</h1>
+      </div>
     </header>
     <main>
       <div class="cards">

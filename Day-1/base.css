@@ -26,14 +26,6 @@
   margin: 0;
   padding: 0;
 }
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: rgb(255, 255, 255);
-    --color-bg: #171717;
-    --color-primary: blanchedalmond;
-    --color-secondary: orange;
-  }
-} */
 :root[data-theme="dark"] {
   --color-text: rgb(255 255 255);
   --color-bg: #171717;
