@@ -1,0 +1,10 @@
+console.log(typeof "Hello")
+console.log(typeof 1)
+console.log(typeof 1234545789n)
+console.log(typeof Symbol("Hiii"))
+console.log(typeof y)
+let x=null;
+console.log(x)
+console.log(typeof true)
+console.log(typeof null, typeof [])
+console.log(typeof function(){})
