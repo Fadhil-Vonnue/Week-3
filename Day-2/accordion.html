@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #check {
+        display: none;
+      }
+      .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in;
+        border: 1px solid black;
+      }
+      /* #check:checked + .content {
+        max-height: 500px;
+      } */
+      .con {
+        display: none;
+      }
+      .vis{
+        display: block;
+      }
+      /* .tabss input[type="radio"]:checked + div {
+        display: block;
+      } */
+      .rating input[type="radio"] {
+        display: none;
+      }
+      /* .rating label::before {
+        content: "\2606";
+      } */
+      /* .rating input[type="radio"]:checked ~ label::before {
+        content: "\2605";
+        color: gold;
+      } */
+      /* .rating input[type="radio"]:checked {
+        color: gold;
+      } */
+      .visible {
+        max-height: 500px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>CSS only Interactive Components</h1>
+    <label for="check">Touch me</label>
+    <input onchange="showBox(event)" id="check" type="checkbox" />
+    <div class="content">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut modi tempore
+      rerum reprehenderit fugiat sint odio, perferendis rem mollitia ex! Impedit
+      temporibus velit quae id iusto perferendis sequi, consectetur corrupti aut
+      minima. Nihil dolorum quia, doloribus id officiis corporis, voluptatem,
+      eos reiciendis quaerat deserunt ratione veniam culpa ab commodi sed?
+    </div>
+    <br />
+    <div class="tabss">
+      <label for="tab1">Tab 1</label>
+      <input onclick="showTab(event)" type="radio" id="tab1" name="tab" />
+      <div class="con">THIS IS TAB 1.</div>
+      <br />
+      <!-- <label for="tab2">Tab 2</label>
+      <input onchange="showTab(event)" type="radio" id="tab2" name="tab" />
+      <div class="con">THIS IS TAB 2</div>
+      <br /> -->
+    </div>
+    <h2>Rating</h2>
+    <h2>Rating</h2>
+    <hr />
+    <div class="rating">
+      <span onclick="showRatings(event)" onclick="showRatings(event)">&#9734;</span>
+      <span onclick="showRatings(event)">&#9734;</span>
+      <span onclick="showRatings(event)">&#9734;</span>
+      <span onclick="showRatings(event)">&#9734;</span>
+      <span onclick="showRatings(event)">&#9734;</span>
+    </div>
+    <script src="accordion.js"></script>
+  </body>
+</html>
