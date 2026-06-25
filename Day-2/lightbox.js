@@ -18,32 +18,6 @@ document.addEventListener("keydown", (e) => {
     overlay.style.display = "none";
   }
 });
-// function prevNext(e) {
-//   console.log("hehe");
-//   console.log(curr.nextElementSibling);
-//   if (e.target.id == "next-but") {
-//     if (curr.nextElementSibling !== null) {
-//       curr = curr.nextElementSibling;
-//       const image = curr.querySelector("figure img");
-//       const overlayImage = overlay.querySelector("img");
-//       overlayImage.src = image.src;
-//     }
-//   }
-//   if (e.target.id == "prev-but") {
-//     console.log(curr.previousElementSibling);
-//     if (curr.previousElementSibling !== null) {
-//       console.log("hehe");
-//       curr = curr.previousElementSibling;
-//       const image = curr.querySelector("figure img");
-//       const overlayImage = overlay.querySelector("img");
-//       overlayImage.src = image.src;
-//     }
-//   }
-//   if (e.target.id == "exit-but") {
-//     overlay.style.display = "none";
-//     document.body.style.overflow = "visible";
-//   }
-// }
 function prevMove() {
   console.log(curr.previousElementSibling);
   if (curr.previousElementSibling !== null) {
