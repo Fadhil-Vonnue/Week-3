@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Application Form</h1>
+      <ol>
+        <li aria-current="step">Step 1</li>
+        <li>Step 2</li>
+        <li>STep 3</li>
+      </ol>
+      <form action="">
+        <fieldset>
+          <legend>Step 1: Personal Information</legend>
+
+          <label for="nameId">Enter Name *</label>
+          <input type="text" name="name" id="nameId"/><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="usernameId">Enter Username *</label>
+          <input type="text" name="username" id="usernameId" /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="emailId">Enter Email *</label>
+          <input type="email" id="emailId" name="email"/><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="passId">Enter Password *</label>
+          <input type="password" id="passId" name="password"/><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="confirmpassId">Confirm Password *</label>
+          <input type="password" id="confirmpassId" name="confirmPassword"/><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="telId">Enter Phone number</label>
+          <input type="tel" name="phone" id="telId"  /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="linkedinUrlId">Enter your LinkedIn URL</label>
+          <input type="url" name="linkedinurl" id="linkedinUrlId" /><span style="color:red;" class="field-error"></span><br /><br />
+        </fieldset>
+        <fieldset>
+          <legend>Step 2 : Work Experience</legend>
+          <label for="roleId">Enter Current Role *</label>
+          <input type="text" name="role" id="roleId"  /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="companyId">Enter Current Company</label>
+          <input type="text" id="companyId"  /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="expId">Enter Years of Experience</label>
+          <input type="number" name="exp" id="expId"  /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="achievementsId">Enter Key Achievements </label>
+          <textarea
+            aria-describedby="maxchars"
+            name="achievements"
+            id="achievementsId"
+          ></textarea>
+          <p id="maxchars">Max 500 characters</p><span style="color:red;" class="field-error"></span>
+        </fieldset>
+        <fieldset>
+          <legend>Step 3: Documents</legend>
+          <label for="cvId">Upload your CV *</label>
+          <input
+            type="file"
+            name="cv"
+            id="cvId"
+            accept=".pdf,.docx"
+          /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="coverLetterId">Upload your Cover Letter *</label>
+          <input
+            type="file"
+            name="coverLetter"
+            id="coverLetterId"
+          /><span style="color:red;" class="field-error"></span><br /><br />
+          <label for="urlId">Enter your Portfolio URL </label>
+          <input type="url" name="urlId" id="urlId" /><span style="color:red;" class="field-error"></span><br /><br />
+        </fieldset>
+        <input type="submit" name="submit" id="submit">
+      </form>
+    </main>
+    <script src="formValidator.js"></script>
+  </body>
+</html>
