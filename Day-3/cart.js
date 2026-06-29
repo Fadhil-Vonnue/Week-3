@@ -9,19 +9,19 @@ class Subject {
     this.observers.forEach((observer) => observer(data));
   }
 }
-const render=(data)=>{
-     
-       const main=document.querySelector("body")
-       main.innerHTML=""
-    for(let d of data){
-        const el=document.createElement("div")
-        el.classList.add("cart")
-        el.textContent=`item: ${d.item}, quantity:${d.quantity}, price:${d.price}`
-        main.appendChild(el)
-    }
-}
-const listener=new Subject()
-listener.addObserver(render)
+const render = (data) => {
+  const main = document.querySelector("body");
+  main.innerHTML = "";
+  if(data[0]===undefined) return
+  for (let d of data) {
+    const el = document.createElement("div");
+    el.classList.add("cart");
+    el.textContent = `item: ${d.item}, quantity:${d.quantity}, price:${d.price}`;
+    main.appendChild(el);
+  }
+};
+const listener = new Subject();
+listener.addObserver(render);
 class Stack {
   stack = [];
   add(item) {
@@ -42,10 +42,10 @@ class Cart {
     stack.add(this.items);
     this.stack = stack;
     this.total = 0;
-    listener.notifyObservers(this.items)
-    sessionStorage.setItem("cart",JSON.stringify(this.items))
+    listener.notifyObservers(this.items);
+    localStorage.setItem("cart", JSON.stringify(this.items));
   }
-  addItem(item) {    
+  addItem(item) {
     return new Cart(this.stack, ...this.items, item);
   }
   removeItem(itemId) {
@@ -77,25 +77,18 @@ class Cart {
     }
     return total;
   }
+  undo() {
+    let stackarr = this.stack["stack"];
+    console.log(stackarr)
+    stackarr.pop();
+    let previousState = stackarr.pop();
+    return new Cart(this.stack, previousState);
+  }
 }
 const newstack = new Stack();
 console.log("---------------------");
-if(sessionStorage.getItem("cart")!==null){
-  render(JSON.parse(sessionStorage.getItem("cart")))
+let cart;
+if (localStorage.getItem("cart") !== null) {
+  cart = new Cart(newstack,JSON.parse(localStorage.getItem("cart")))
 }
-const cart = new Cart(
-  newstack,
-  { id: 1, item: "banana", quantity: 2, price: 50 },
-  { id: 2, item: "apple", quantity: 3, price: 100 },
-);
-const new1 = cart.addItem({ id: 3, item: "mango", quantity: 5, price: 80 });
-const new2 = new1.removeItem(2);
-console.log("---------------------------------------------------");
-// console.log(new2.updateQuantity(1, 9));
-const new3 = new2.updateQuantity(1, 9);
-console.log("---------------------------------------------------");
-// newstack.display();
-console.log(new3.getTotal());
-console.log(new3.applyCoupon("COUPON10"));
-
-
+else cart= new Cart(newstack)
