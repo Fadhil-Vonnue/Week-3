@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      @keyframes shimmer {
+        to {
+          background-position-x: 0%;
+        }
+      }
+      .box {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        min-width: 150px;
+        border-radius: 50%;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        background-color: rgb(223, 5, 5);
+      }
+      .skeleton {
+        background: linear-gradient(
+          -45deg,
+          #444343 40%,
+          #6d6d6d 50%,
+          #6d6969 60%
+        );
+        background-size: 300%;
+        background-position-x: 100%;
+        animation: shimmer 1s infinite linear alternate;
+      }
+      .temperature {
+        position: absolute;
+        right: auto;
+        top: 73px;
+      }
+      .main{
+        display: flex;
+        gap: 25px;
+        padding: 25px;
+      }
+      .data{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+      .data-line{
+        background-color: red;
+        padding: 10px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TODAYS WEATHER</h1>
+    
+        <div class="search">
+            <input class="search-but" type="search">
+            <button onclick="search(event)">Search</button>
+        </div>
+        <div class="main">
+        <div class="hero ">
+          <div class="cloud">
+            <img
+              src="https://img.icons8.com/?size=100&id=2854&format=png&color=000000"
+              alt=""
+            />
+          </div>
+    
+          <div class="temperature"></div>
+        </div>
+    
+    <div class="data">
+        <div class="data-line  windspeed">Windspeed -</div>
+        <div class="data-line  weather-desc">Desc -</div>
+    </div>
+    </div>
+
+    <script src="weather.js"></script>
+  </body>
+</html>
