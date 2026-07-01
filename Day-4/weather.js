@@ -125,8 +125,14 @@ async function search(e) {
       throw new Error("Error while fetching");
     }
     const data = await response.json();
-    let searchurl=`https://api.open-meteo.com/v1/forecast?latitude=${data.results[0].latitude}&longitude=${data.results[0].longitude}&current=temperature_2m,weather_code,wind_speed_10m`
-    render(searchurl)
+    if(data.results){
+        document.querySelector(".error-message").textContent=""
+        let searchurl=`https://api.open-meteo.com/v1/forecast?latitude=${data.results[0].latitude}&longitude=${data.results[0].longitude}&current=temperature_2m,weather_code,wind_speed_10m`
+        render(searchurl)
+    }
+    else{
+        document.querySelector(".error-message").textContent="NO RESULTS FOUND"
+    }
   } catch (err) {
     return Promise.reject(err);
   }
