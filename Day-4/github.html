@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Sans", sans-serif;
+      }
+      body {
+        background-color: rgb(13, 17, 23);
+        color: white;
+      }
+      .followlist {
+        display: flex;
+      }
+      .search {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+      }
+      input {
+        border-radius: 6px;
+        padding: 5px;
+      }
+      .image img {
+        border-radius: 50%;
+      }
+      button {
+        font-size: 14px;
+        border: 1px solid;
+        border-radius: 6px;
+        line-height: 20px;
+        background-color: #212830;
+        color: #f0f6fc;
+        text-align: center;
+        padding: 5px 16px;
+      }
+      a {
+        font-size: 14px;
+        color: rgb(68, 147, 248);
+        font-weight: 600;
+      }
+      .name {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+      .interact {
+        display: flex;
+        width: 100%;
+      }
+      .interact button {
+        width: 100%;
+      }
+      .profile-pic {
+        width: 296px;
+      }
+      .repos {
+        width: 100%;
+        display: flex;
+        /* justify-content: center; */
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        width: calc(50% - 8px);
+        border: 1px solid #3d444d;
+        border-radius: 4px;
+        padding: 16px;
+        /* margin: 0 7px; */
+      }
+
+      .all {
+        display: none;
+        width: 1270px;
+        padding: 0 32px;
+        margin-top: 8px;
+        gap: 24px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .foot {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: auto;
+      }
+      .star {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .followlist{
+        gap: 5px;
+      }
+      .starsvg{
+        display: flex;
+      }
+      .followers {
+        display: flex;
+        gap: 5px;
+      }
+      .repo-desc,
+      .repo-lang,
+      .starcount {
+        font-size: 12px;
+        color: rgba(142, 152, 161, 1);
+        font-weight: 400;
+      }
+      .repo-desc {
+        margin-top: 8px;
+      }
+      .bio {
+        margin: 16px 0;
+      }
+      .svgstar {
+        display: flex;
+        align-items: center;
+      }
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 8px;
+      }
+      .realname {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .username {
+        font-size: 20px;
+        font-weight: 300;
+        color: rgba(142, 152, 161, 1);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="search">
+        <input type="search" name="username" id="username" />
+        <button onclick="search(event)">Search</button>
+      </div>
+      <div class="all">
+        <div class="profile-pic">
+          <div class="image">
+            <img
+              width="296"
+              height="296"
+              src="https://avatars.githubusercontent.com/u/290269543?v=4'"
+              alt=""
+            />
+          </div>
+          <div class="name">
+            <span class="realname">Abhishek Naidu</span>
+            <span class="username">abhisheknaiidu</span>
+          </div>
+          <div class="interact">
+            <button>Follow</button>
+          </div>
+          <div class="bio">generalist</div>
+          <div class="followlist">
+            <div class="followers">
+              <div class="followerlogo">
+                <svg
+                  text="muted"
+                  aria-hidden="true"
+                  data-component="Octicon"
+                  height="16"
+                  fill=" rgba(142, 152, 161, 1)"
+                  viewBox="0 0 16 16"
+                  version="1.1"
+                  width="16"
+                  data-view-component="true"
+                  class="octicon octicon-people"
+                >
+                  <path
+                    d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="followercount">3k followers</span>
+            </div>
+            <div class="following">● 14 following</div>
+          </div>
+          <div class="location">
+            <div class="loclogo">
+              <svg
+                data-component="Octicon"
+                class="octicon octicon-location"
+                viewBox="0 0 16 16"
+                version="1.1"
+                width="16"
+                height="16"
+                fill="white"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"
+                ></path>
+              </svg>
+            </div>
+            <span class="locationname">India</span>
+          </div>
+          <hr />
+        </div>
+        <div class="repos">
+          <div class="card">
+            <a class="repo-name" href="">WEEK 1</a>
+            <div class="repo-desc">Simple and Interactive Portfolio</div>
+            <div class="foot">
+              <div class="repo-lang">JavaScript</div>
+              <div class="star">
+                <svg
+                  aria-label="star"
+                  role="img"
+                  data-component="Octicon"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  version="1.1"
+                  width="16"
+                  data-view-component="true"
+                  class="octicon octicon-star"
+                >
+                  <path
+                    d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"
+                  ></path>
+                </svg>
+                1
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a class="repo-name" href="">WEEK 1</a>
+            <div class="repo-desc">Simple and Interactive Portfolio</div>
+            <div class="foot">
+              <div class="repo-lang">JavaScript</div>
+              <div class="star">
+                <div class="svgstar">
+                  <svg
+                    aria-label="star"
+                    role="img"
+                    data-component="Octicon"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    version="1.1"
+                    width="16"
+                    fill="white"
+                    data-view-component="true"
+                    class="octicon octicon-star"
+                  >
+                    <path
+                      d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"
+                    ></path>
+                  </svg>
+                </div>
+                <span class="starcount">1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="github.js"></script>
+  </body>
+</html>
