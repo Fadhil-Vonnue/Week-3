@@ -43,7 +43,6 @@ window.onload = (event) => {
         return;
       } else {
         document.querySelector(".mainheader").style.opacity = "100";
-        console.log("heyyghlshgdl");
         target.forEach((el) => {
           el.classList.add("animateOnScroll");
         });
