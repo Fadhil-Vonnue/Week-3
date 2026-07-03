@@ -9,7 +9,6 @@ cards.forEach((card) => {
     const overlayImage = overlay.querySelector("img");
     overlayImage.src = image.src;
     overlay.style.top = `${scrollY}px`;
-    console.log("scrolled" + scrollY);
     document.body.style.overflow = "hidden";
   });
 });
@@ -19,9 +18,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 function prevMove() {
-  console.log(curr.previousElementSibling);
   if (curr.previousElementSibling !== null) {
-    console.log("hehe");
     curr = curr.previousElementSibling;
     const image = curr.querySelector("figure img");
     const overlayImage = overlay.querySelector("img");

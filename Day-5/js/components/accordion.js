@@ -1,5 +1,4 @@
 export function openDrawer(button, content) {
-    console.log("HEYYYBROO")
   const isOpen = content.classList.toggle("isToggled");
   if (isOpen) {
     content.style.maxHeight = "500px";
