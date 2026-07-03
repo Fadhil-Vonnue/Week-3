@@ -1,60 +1,84 @@
-const cards = document.querySelectorAll(".card");
-const overlay = document.getElementsByClassName("image-overlay")[0];
-var curr;
-cards.forEach((card) => {
-  card.addEventListener("click", (event) => {
-    overlay.style.display = "flex";
-    curr = event.currentTarget;
-    const image = event.currentTarget.querySelector("figure img");
-    const overlayImage = overlay.querySelector("img");
-    overlayImage.src = image.src;
-    overlay.style.top = `${scrollY}px`;
-    console.log("scrolled" + scrollY);
-    document.body.style.overflow = "hidden";
+export function lightBox() {
+  const cards = document.querySelectorAll(".card");
+  const overlay = document.getElementsByClassName("image-overlay")[0];
+  var curr;
+  cards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      overlay.style.display = "flex";
+      curr = event.currentTarget;
+      const image = event.currentTarget.querySelector("figure img");
+      const overlayImage = overlay.querySelector("img");
+      overlayImage.src = image.src;
+      overlay.style.top = `${scrollY}px`;
+      console.log("scrolled" + scrollY);
+      document.body.style.overflow = "hidden";
+    });
   });
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key == "Escape") {
+  document.addEventListener("keydown", (e) => {
+    if (e.key == "Escape") {
+      overlay.style.display = "none";
+      document.body.style.overflow = "visible"
+    }
+    if(e.key=="ArrowRight"){
+        nextMove()
+    }
+    if(e.key=="ArrowLeft"){
+        prevMove()
+    }
+  });
+  function prevMove() {
+    console.log(curr.previousElementSibling);
+    if (curr.previousElementSibling !== null) {
+      console.log("hehe");
+      curr = curr.previousElementSibling;
+      const image = curr.querySelector("figure img");
+      const overlayImage = overlay.querySelector("img");
+      overlayImage.src = image.src;
+    }
+  }
+  function nextMove() {
+    if (curr.nextElementSibling !== null) {
+      curr = curr.nextElementSibling;
+      const image = curr.querySelector("figure img");
+      const overlayImage = overlay.querySelector("img");
+      overlayImage.src = image.src;
+    }
+  }
+  function exitMove() {
     overlay.style.display = "none";
+    document.body.style.overflow = "visible";
   }
-});
-function prevMove() {
-  console.log(curr.previousElementSibling);
-  if (curr.previousElementSibling !== null) {
-    console.log("hehe");
-    curr = curr.previousElementSibling;
-    const image = curr.querySelector("figure img");
-    const overlayImage = overlay.querySelector("img");
-    overlayImage.src = image.src;
-  }
-}
-function nextMove() {
-  if (curr.nextElementSibling !== null) {
-    curr = curr.nextElementSibling;
-    const image = curr.querySelector("figure img");
-    const overlayImage = overlay.querySelector("img");
-    overlayImage.src = image.src;
-  }
-}
-function exitMove() {
-  overlay.style.display = "none";
-  document.body.style.overflow = "visible";
-}
-overlay.querySelectorAll("button").forEach((el) => {
-  el.addEventListener("click", (e) => {
-    if (e.target.id == "next-but") {
-      nextMove();
-    }
-    if (e.target.id == "prev-but") {
-      prevMove();
-    }
-    if (e.target.id == "exit-but") {
-      exitMove();
+  overlay.querySelectorAll("button").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (e.target.id == "next-but") {
+        nextMove();
+      }
+      if (e.target.id == "prev-but") {
+        prevMove();
+      }
+      if (e.target.id == "exit-but") {
+        exitMove();
+      }
+    });
+  });
+  let touchStart, touchEnd;
+  overlay.addEventListener("touchstart", (e) => {
+    touchStart = e.changedTouches[0].screenX;
+  });
+  overlay.addEventListener("touchend", (e) => {
+    touchEnd = e.changedTouches[0].screenX;
+    let touchDiff = touchEnd - touchStart;
+    if (Math.abs(touchDiff) > 30) {
+      if (touchDiff > 0) {
+        prevMove();
+      } else {
+        nextMove();
+      }
     }
   });
-});
+}
 
-function trapFocus(element) {
+export function trapFocus(element) {
   const focusableSelectors = "button";
   const focusableElements = element.querySelectorAll("button");
 
@@ -79,19 +103,4 @@ function trapFocus(element) {
     }
   });
 }
-trapFocus(overlay);
-let touchStart, touchEnd;
-overlay.addEventListener("touchstart", (e) => {
-  touchStart = e.changedTouches[0].screenX;
-});
-overlay.addEventListener("touchend", (e) => {
-  touchEnd = e.changedTouches[0].screenX;
-  let touchDiff = touchEnd - touchStart;
-  if (Math.abs(touchDiff) > 30) {
-    if (touchDiff > 0) {
-      prevMove();
-    } else {
-      nextMove();
-    }
-  }
-});
+// trapFocus(overlay);

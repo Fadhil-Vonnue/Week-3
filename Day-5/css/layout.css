@@ -27,11 +27,12 @@ main {
 
 .hero {
   width: 100%;
-  background-image:
+  /* background-image:
     linear-gradient(rgb(36 36 126 / 50%) 0%, rgb(53 48 48 / 50%) 100%),
-    url("https://picsum.photos/id/1/1900/600");
+    url("https://picsum.photos/id/1/1900/600"); */
+    background-image: linear-gradient(rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 50%), rgb(0 0 0 / 70%), rgb(0 0 0 / 90%), rgb(0 0 0 / 100%) 100%), url(https://picsum.photos/id/1/1900/600);
   background-size: cover;
-  height: 50vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
