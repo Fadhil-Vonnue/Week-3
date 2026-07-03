@@ -12,14 +12,32 @@ main {
   padding: 10px;
   box-sizing: border-box;
 }
-
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
 .feature {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 5px;
+  gap: 15px;
+  padding: 20px;
+  opacity: 1;
 }
-
+.animateOnScroll{
+    animation: fadeIn 1s ease-in;
+}
+.mainheader{
+    margin-bottom: 150px;
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+.feature p{
+    font-size: 20px;
+}
 .article {
   padding: 10px;
   display: flex;
@@ -444,13 +462,14 @@ iframe {
 
 .drawer {
   background-color: rgb(160, 160, 255);
-  display: none;
+  max-height: 0;
   align-items: center;
   justify-content: space-around;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 0px;
   width: 100%;
   gap: 10px;
+  overflow: hidden;
 }
 .open {
   display: flex !important;
@@ -487,12 +506,12 @@ iframe {
   width: 100%;
   border: 1px solid red;
   background-color: white;
-  height: 30px;
+  height: 8px;
   position: relative;
 }
 .progress {
   height: 100%;
-  background-color: green;
+  background-color: rgb(163, 5, 5);
 }
 .count {
   color: black;
@@ -544,4 +563,24 @@ iframe {
   position: absolute;
   top: 100px;
   right: 10px;
+}
+.accordionContent{
+    max-height: 0;
+    overflow: hidden;
+    border: 1px solid;
+}
+.accordion-but{
+    background: none;
+    padding: 5px;
+    border: none;
+}
+.FAQ{
+    padding: 10px;
+    border: 1px solid grey;
+}
+.FAQS{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 5px;
 }

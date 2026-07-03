@@ -28,7 +28,7 @@
 }
 :root[data-theme="dark"] {
   --color-text: rgb(255 255 255);
-  --color-bg: #171717;
+  --color-bg: #000000;
   --color-primary: blanchedalmond;
   --color-secondary: orange;
 }

@@ -1,15 +1,18 @@
 export function openDrawer(button, content) {
     console.log("HEYYYBROO")
+    console.log(content)
   const isOpen = content.classList.toggle("isToggled");
   if (isOpen) {
     content.style.maxHeight = "500px";
+    content.style.padding="20px"
     content.ariaExpanded = true;
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
   } else {
     content.style.maxHeight = "0px";
-    content.style.overflow="hidden"
+    content.style.padding="0px"
     content.ariaExpanded = false;
-    document.body.style.overflow = "visible";
+    content.style.overflow="hidden"
+    // document.body.style.overflow = "visible";
   }
 }
 
