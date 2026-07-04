@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Presswire - Contact Page of the Presswire PR Agency</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <header>
@@ -29,19 +29,29 @@
     <main>
       <form action="">
         <div class="field">
-          <input type="text" id="name-id" required />
+          <input type="text" placeholder=" " name="name" id="name-id" /><span
+            style="color: red"
+            class="field-error"
+          ></span>
           <label for="name-id">Enter Name *</label>
         </div>
         <div class="field">
-          <input type="email" id="email-id" required />
+          <input type="email" placeholder=" " name="email" id="email-id" /><span
+            style="color: red"
+            class="field-error"
+          ></span>
           <label for="email-id">Enter Email *</label>
         </div>
         <div class="field">
-          <input type="tel" id="tel-id" required />
+          <input type="tel" placeholder=" " name="phone" id="tel-id" /><span
+            style="color: red"
+            class="field-error"
+          ></span>
           <label for="tel-id">Enter Phone No *</label>
         </div>
         <label for="dept-title-id">Select Department: *</label>
-        <select id="dept-title-id" name="dept-title" required>
+        <select id="dept-title-id" name="role">
+          <span style="color: red" class="field-error"></span>
           <option value="" disabled selected>Select department</option>
           <option value="Finance">Finance</option>
           <option value="technology">technology</option>
@@ -52,7 +62,8 @@
         </select>
         <br /><br />
         <div class="field">
-          <textarea id="msg" name="msg"></textarea>
+          <textarea id="msg" placeholder=" " name="msg"></textarea
+          ><span style="color: red" class="field-error"></span>
           <label for="msg">Tell us:</label>
         </div>
         <div class="checkbx">
@@ -61,7 +72,11 @@
           <span></span>
         </div>
         <br /><br />
-        <input type="submit" /> <br /><br />
+        <div class="submitTop flex" style="align-items: center;">
+          <input type="submit" />
+          <div class="spin"></div>
+        </div>
+        <br /><br />
       </form>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.904135718986!2d-77.04188952406292!3d38.90330747172272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7b932f791e7%3A0x67625b2834fb642c!2sEIN%20Presswire!5e0!3m2!1sen!2sin!4v1781017093269!5m2!1sen!2sin"

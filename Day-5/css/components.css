@@ -13,12 +13,12 @@ main {
   box-sizing: border-box;
 }
 @keyframes fadeIn {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 100;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 .feature {
   display: flex;
@@ -27,16 +27,16 @@ main {
   padding: 20px;
   opacity: 1;
 }
-.animateOnScroll{
-    animation: fadeIn 1s ease-in;
+.animateOnScroll {
+  animation: fadeIn 1s ease-in;
 }
-.mainheader{
-    margin-bottom: 150px;
-    opacity: 0;
-    transition: all 1s ease-in;
+.mainheader {
+  margin-bottom: 150px;
+  opacity: 0;
+  transition: all 1s ease-in;
 }
-.feature p{
-    font-size: 20px;
+.feature p {
+  font-size: 20px;
 }
 .article {
   padding: 10px;
@@ -307,8 +307,11 @@ tbody tr:first-child th {
 }
 
 .field {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin: 45px auto;
+  align-items: flex-start;
 }
 
 .field input,
@@ -327,8 +330,10 @@ textarea {
 }
 
 .field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label,
 .field textarea:focus ~ label,
-.field input:valid ~ label,
+.field textarea:not(:placeholder-shown) ~ label,
+.field input:invalid ~ label,
 .field form:focus ~ label {
   top: -20px;
   font-size: 14px;
@@ -447,11 +452,6 @@ input:user-invalid {
   border: solid rgb(255 0 0);
 }
 
-input:user-valid,
-select:user-valid {
-  border: solid green;
-}
-
 select:user-invalid {
   border: solid rgb(255 0 0);
 }
@@ -559,28 +559,45 @@ iframe {
   color: white;
   border-radius: 50%;
 }
-#exit-but{
+#exit-but {
   position: absolute;
   top: 100px;
   right: 10px;
 }
-.accordionContent{
-    max-height: 0;
-    overflow: hidden;
-    border: 1px solid;
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  border: 1px solid;
 }
-.accordion-but{
-    background: none;
-    padding: 5px;
-    border: none;
+.accordion-but {
+  background: none;
+  padding: 5px;
+  border: none;
 }
-.FAQ{
-    padding: 10px;
-    border: 1px solid grey;
+.FAQ {
+  padding: 10px;
+  border: 1px solid grey;
 }
-.FAQS{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 10px 5px;
+.FAQS {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px 5px;
+}
+@keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+.spin {
+  display: none;
+  width: 30px;
+  height: 30px;
+  border: 4px solid black;
+  border-radius: 50%;
+  border-bottom: 4px solid cyan;
+  animation: rotation 1s linear infinite;
 }

@@ -2,6 +2,8 @@ import { openDrawer } from "./js/components/accordion.js";
 import { onLoadSetTheme, darkModeToggle } from "./js/components/darkMode.js";
 import { lightBox, trapFocus } from "./js/components/lightbox.js";
 import { progressBar } from "./js/components/progressbar.js";
+import { rules, FormValidator } from "./js/components/formValidator.js";
+import { showToast } from "./js/util.js";
 window.onload = (event) => {
   onLoadSetTheme(document.getElementById("dark"));
   document.getElementById("dark").addEventListener("click", (e) => {
@@ -50,5 +52,26 @@ window.onload = (event) => {
     };
     const observer = new IntersectionObserver(callBack);
     observer.observe(document.querySelector(".homegrid"));
+  }
+  if (path.includes("contact")) {
+    let flag;
+    const form = document.querySelector("form");
+    const newform = new FormValidator(form, rules);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      e.target.querySelector(`[type="submit"]`).disabled = true;
+      document.querySelector(".spin").style.display = "inline-block";
+      setTimeout(() => {
+        document.querySelector(".spin").style.display = "none";
+        flag = newform.validateAll();
+        if (flag) {
+          showToast({ message: "Form unsuccessful" }, 3,"error");
+        } else {
+          showToast({ message: "Form sent successfully" }, 3,"success");
+        }
+        document.querySelector(`[type="submit"]`).disabled = false;
+        form.reset()
+      }, 1500);
+    });
   }
 };
