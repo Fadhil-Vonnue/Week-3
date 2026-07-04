@@ -16,6 +16,10 @@ export function debounce(fn, time = 300) {
 }
 
 export function showToast(err, duration, type = "error") {
+  const check=document.querySelector(".toaster")
+  if(check){
+    check.remove()
+  }
   const toaster = document.createElement("div");
   toaster.classList.add("toaster");
   const toasterWarning = document.createElement("div");
@@ -146,4 +150,18 @@ export function showToast(err, duration, type = "error") {
   toaster.appendChild(toasterErrorMessage);
   toaster.appendChild(toastProgress);
   document.body.prepend(toaster);
+}
+export function createRetryButton(fn){
+  const div=document.createElement("div")
+  div.classList.add("retryButton")
+  const imageElement=document.createElement("img")
+  imageElement.src=`https://img.icons8.com/?size=100&id=11684&format=png&color=FFFFFF`
+  imageElement.width="40"
+  imageElement.alt=""
+  div.appendChild(imageElement)
+  imageElement.addEventListener("click",(e)=>{fn()
+    div.classList.add("hidden")
+    div.remove()
+  })
+  return div
 }
