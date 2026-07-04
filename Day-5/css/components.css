@@ -76,7 +76,7 @@ button:focus-visible {
 }
 
 .testimonial {
-  border: 1px solid black;
+  border: 1px solid var(--color-text);
   padding: 10px;
 }
 
@@ -205,7 +205,7 @@ li {
   margin: 5px 0;
 }
 
-.card {
+.teampage .card {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -215,7 +215,20 @@ li {
   box-shadow: 0 6px 8px rgb(0 0 0 / 20%);
   transition: transform 100ms ease;
 }
-
+.servicepage .card p {
+  font-size: 25px;
+}
+.servicepage .card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 25px;
+  min-width: 0;
+  border: 2px solid rgb(128 128 128 / 47.9%);
+  box-shadow: 0 6px 8px rgb(0 0 0 / 20%);
+  transition: transform 100ms ease;
+  border-radius: 8px;
+}
 .card:hover {
   border: 2px solid var(--color-accent);
   transform: translateY(-10px);
@@ -585,13 +598,13 @@ iframe {
   margin: 10px 5px;
 }
 @keyframes rotation {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .spin {
   display: none;
   width: 30px;
@@ -600,4 +613,68 @@ iframe {
   border-radius: 50%;
   border-bottom: 4px solid cyan;
   animation: rotation 1s linear infinite;
+}
+.latestPosts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.latestPostsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.latestPostsContainer h2 {
+  text-align: center;
+}
+.latestPost {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid var(--color-text);
+}
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+.skeleton {
+  background: linear-gradient(
+    -45deg,
+    #444343 40%,
+    #6d6d6d 50%,
+    #6d6969 60%
+  ) ;
+  background-size: 300% ;
+  background-position-x: 100% ;
+  animation: shimmer 1s infinite linear alternate !important;
+  border-radius: 8px !important;
+}
+.skeletonPlaceholder {
+  min-height: 40vh !important;
+}
+.hidden {
+  display: none !important;
+}
+.retryButton {
+  /* display: none; */
+  justify-content: center;
+  
+  grid-column: 1 / -1;
+  text-align: center;
+}
+.retryButton img {
+  padding: 5px;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.retryButton img:hover {
+  background-color: rgba(128, 128, 128, 0.363);
 }
