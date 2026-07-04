@@ -65,9 +65,9 @@ window.onload = (event) => {
         document.querySelector(".spin").style.display = "none";
         flag = newform.validateAll();
         if (flag) {
-          showToast({ message: "Form unsuccessful" }, 3);
+          showToast({ message: "Form unsuccessful" }, 3,"error");
         } else {
-          showToast({ message: "Form sent successfully" }, 3);
+          showToast({ message: "Form sent successfully" }, 3,"success");
         }
         document.querySelector(`[type="submit"]`).disabled = false;
         form.reset()
