@@ -256,7 +256,7 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: grey;
 }
 
 table {
@@ -272,7 +272,6 @@ tbody tr:first-child th {
     position: sticky;
     top: 85px;
     z-index: 500;
-    background-color: white;
 }
 
 .cta {
