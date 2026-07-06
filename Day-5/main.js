@@ -11,82 +11,85 @@ import { renderTeamCards } from "./js/components/teamCard.js";
 import { latestPost } from "./js/components/latestPosts.js";
 
 window.onload = (event) => {
-  onLoadSetTheme(document.getElementById("dark"));
-  document.getElementById("dark").addEventListener("click", (e) => {
-    darkModeToggle(e);
-  });
-  document.querySelector(".hamb").addEventListener("click", (e)=>{
-    openHam1(e)
-  })
-  document.querySelectorAll(".accordion-but").forEach((el) => {
-    el.addEventListener("click", (e) => {
-      openDrawer(
-        e.currentTarget,
-        e.currentTarget.parentElement.querySelector(".accordionContent"),
-      );
+    onLoadSetTheme(document.getElementById("dark"));
+    document.getElementById("dark").addEventListener("click", (e) => {
+        darkModeToggle(e);
     });
-  });
-  window.addEventListener("scroll", (e) => {
-    if (window.scrollY >= 600) {
-      document.querySelector(".backtop").style.display = "flex";
-    } else {
-      document.querySelector(".backtop").style.display = "none";
-    }
-  });
-
-  document.querySelector(".backtop").addEventListener("click", (e) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    document.querySelector(".hamb").addEventListener("click", (e) => {
+        openHam1(e);
     });
-  });
-  const path = window.location.pathname;
-  if (path.includes("team")) {
-    renderTeamCards();
-    // lightBox();
-    const overlay = document.getElementsByClassName("image-overlay")[0];
-    trapFocus(overlay);
-  }
-  if (path.includes("home")) {
-    latestPost()
-    progressBar();
-    const callBack = (entries) => {
-      const target = document.querySelectorAll(".feature");
-      if (!entries[0].isIntersecting) {
-        return;
-      } else {
-        document.querySelector(".mainheader").style.opacity = "100";
-        target.forEach((el) => {
-          el.classList.add("animateOnScroll");
+    document.querySelectorAll(".accordion-but").forEach((el) => {
+        el.addEventListener("click", (e) => {
+            openDrawer(
+                e.currentTarget,
+                e.currentTarget.parentElement.querySelector(".accordionContent")
+            );
         });
-      }
-    };
-    const observer = new IntersectionObserver(callBack);
-    observer.observe(document.querySelector(".homegrid"));
-  }
-  if (path.includes("contact")) {
-    let flag;
-    const form = document.querySelector("form");
-    const newform = new FormValidator(form, rules);
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      e.target.querySelector(`[type="submit"]`).disabled = true;
-      document.querySelector(".spin").style.display = "inline-block";
-      setTimeout(() => {
-        document.querySelector(".spin").style.display = "none";
-        flag = newform.validateAll();
-        if (flag) {
-          showToast({ message: "Form unsuccessful" }, 3, "error");
-        } else {
-          showToast({ message: "Form sent successfully" }, 3, "success");
-        }
-        document.querySelector(`[type="submit"]`).disabled = false;
-        form.reset();
-      }, 1500);
     });
-  }
-  if (path.includes("services")) {
-    renderServiceCards();
-    searchFilter();
-  }
+    window.addEventListener("scroll", (e) => {
+        if (window.scrollY >= 600) {
+            document.querySelector(".backtop").style.display = "flex";
+        } else {
+            document.querySelector(".backtop").style.display = "none";
+        }
+    });
+
+    document.querySelector(".backtop").addEventListener("click", (e) => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+    const path = window.location.pathname;
+    if (path.includes("team")) {
+        renderTeamCards();
+        const overlay = document.getElementsByClassName("image-overlay")[0];
+        trapFocus(overlay);
+    }
+    if (path.includes("home")) {
+        latestPost();
+        progressBar();
+        const callBack = (entries) => {
+            const target = document.querySelectorAll(".feature");
+            if (!entries[0].isIntersecting) {
+                return;
+            } else {
+                document.querySelector(".mainheader").style.opacity = "100";
+                target.forEach((el) => {
+                    el.classList.add("animateOnScroll");
+                });
+            }
+        };
+        const observer = new IntersectionObserver(callBack);
+        observer.observe(document.querySelector(".homegrid"));
+    }
+    if (path.includes("contact")) {
+        let flag;
+        const form = document.querySelector("form");
+        const newform = new FormValidator(form, rules);
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            e.target.querySelector(`[type="submit"]`).disabled = true;
+            document.querySelector(".spin").style.display = "inline-block";
+            setTimeout(() => {
+                document.querySelector(".spin").style.display = "none";
+                flag = newform.validateAll();
+                if (flag) {
+                    showToast({ message: "Form unsuccessful" }, 3, "error");
+                } else {
+                    showToast(
+                        { message: "Form sent successfully" },
+                        3,
+                        "success"
+                    );
+                }
+                document.querySelector(`[type="submit"]`).disabled = false;
+                form.reset();
+            }, 1500);
+        });
+    }
+    if (path.includes("services")) {
+        renderServiceCards();
+        searchFilter();
+    }
 };
