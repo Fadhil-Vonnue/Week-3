@@ -173,7 +173,7 @@ dl dt::after {
     height: 10px;
     border: 1px solid black;
     border-radius: 50%;
-    background-color: black;
+    background-color: var(--color-text);
 }
 
 dl dt {
@@ -184,6 +184,8 @@ dl dt {
 .hamb {
     width: 35px;
     height: 35px;
+    background: none;
+    border: none;
 }
 .hamb img {
     width: 30px;
@@ -346,6 +348,7 @@ textarea {
     left: 10px;
     top: 13px;
     transition: 0.2s ease all;
+    color: black;
 }
 
 .field input:focus ~ label,
@@ -356,6 +359,7 @@ textarea {
 .field form:focus ~ label {
     top: -20px;
     font-size: 14px;
+    color: var(--color-text);
 }
 
 [type="submit"] {
@@ -385,20 +389,25 @@ textarea {
     content: "";
     display: inline-block;
     width: 30px;
+    box-sizing: border-box;
+    padding: 5px;
     height: 30px;
     border-radius: 50%;
-    background-color: black;
+    background-color: var(--color-secondary);
     border: 1px solid rgb(0 0 0);
     transition: all 0.2s ease;
 }
-
+.flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .checkbx {
     position: relative;
     display: flex;
     align-items: center;
     min-height: 30px;
 }
-
 [type="checkbox"] {
     opacity: 0;
     width: 60px;
@@ -406,12 +415,18 @@ textarea {
 #dark {
     width: auto;
     opacity: 1;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 50%;
+    align-self: center;
+    display: flex;
+    margin-left: 211px;
+    border: none;
 }
 
 [type="checkbox"]:checked ~ label::after {
     left: 20px;
 }
-
 [type="checkbox"]:checked ~ label::before {
     background-color: lightskyblue;
 }
@@ -422,8 +437,11 @@ select {
     padding: 10px;
     transition: 0.4s;
     border-radius: 10px;
+    color: black;
 }
-
+a {
+    color: var(--color-secondary);
+}
 select,
 ::picker(select) {
     appearance: base-select;
@@ -517,7 +535,7 @@ iframe {
     width: 100%;
     display: flex;
     position: sticky;
-    top: 96px;
+    top: 76px;
     box-sizing: border-box;
     z-index: 1000;
 }
@@ -531,6 +549,7 @@ iframe {
 }
 .progress {
     height: 100%;
+    width: 0;
     background-color: rgb(163, 5, 5);
 }
 .count {
@@ -547,8 +566,8 @@ iframe {
     justify-content: center;
     padding: 10px;
     width: 100px;
-    background-color: black;
-    color: white;
+    background-color: var(--color-text);
+    color: var(--color-bg);
     position: sticky;
     align-items: center;
     bottom: 100px;

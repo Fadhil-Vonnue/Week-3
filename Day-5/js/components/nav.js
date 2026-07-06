@@ -5,12 +5,14 @@ export function openHam(button, content) {
         content.style.padding = "20px";
         content.ariaExpanded = true;
         document.body.style.overflow = "hidden";
+        document.querySelector(".top-top").classList.add("hidden");
     } else {
         content.style.maxHeight = "0px";
         content.style.padding = "0px";
         content.ariaExpanded = false;
         content.style.overflow = "hidden";
         document.body.style.overflow = "visible";
+        document.querySelector(".top-top").classList.remove("hidden");
     }
 }
 

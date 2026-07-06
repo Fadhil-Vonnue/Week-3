@@ -14,6 +14,11 @@ header {
     top: 0;
     box-sizing: border-box;
     z-index: 1000;
+    /* height: 96px; */
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
 }
 
 header a {
@@ -23,13 +28,11 @@ header a {
 main {
     padding: 10px;
     box-sizing: border-box;
+    min-height: calc(100vh - 76px - 30vh);
 }
 
 .hero {
     width: 100%;
-    /* background-image:
-    linear-gradient(rgb(36 36 126 / 50%) 0%, rgb(53 48 48 / 50%) 100%),
-    url("https://picsum.photos/id/1/1900/600"); */
     background-image:
         linear-gradient(
             rgb(0 0 0 / 40%) 0%,

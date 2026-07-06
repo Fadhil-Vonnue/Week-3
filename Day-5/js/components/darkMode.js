@@ -16,6 +16,11 @@ export function onLoadSetTheme(toggleElement) {
     if (setTheme == "dark") {
         toggleElement.checked = true;
         toggleElement.setAttribute("aria-pressed", "true");
+        toggleElement
+            .querySelector("svg")
+            .querySelector("g")
+            .querySelector("path").style.fill = "yellow";
+        toggleElement.style.backgroundColor = "black";
     }
 }
 
@@ -24,9 +29,19 @@ export function darkModeToggle(e) {
         document.documentElement.setAttribute("data-theme", "dark");
         e.currentTarget.setAttribute("aria-pressed", "true");
         localStorage.setItem("theme", "dark");
+        e.currentTarget
+            .querySelector("svg")
+            .querySelector("g")
+            .querySelector("path").style.fill = "yellow";
+        e.currentTarget.style.backgroundColor = "black";
     } else {
         document.documentElement.setAttribute("data-theme", "light");
         e.currentTarget.setAttribute("aria-pressed", "false");
         localStorage.setItem("theme", "light");
+        e.currentTarget
+            .querySelector("svg")
+            .querySelector("g")
+            .querySelector("path").style.fill = "black";
+        e.currentTarget.style.backgroundColor = "white";
     }
 }
